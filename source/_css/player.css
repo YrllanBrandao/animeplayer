@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+
+:root{
+    --defaultFont: 'Poppins', sans-serif;
+    --spacer: 1rem;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* width */
+
+#skip-intro{
+    background: url('https://api.iconify.design/fluent/skip-forward-tab-20-filled.svg?color=%234e31aa&width=30&height=30') no-repeat center center / contain;
+    height: 30px;
+    width: 30px;
+}
+#play-button{
+    background: url('https://api.iconify.design/material-symbols/play-arrow-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
+}
+#play-button.paused{
+    background: url('https://api.iconify.design/material-symbols/pause-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
+}
+
+@media only screen and (max-width: 767px)
+{
+
+.video-top{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.video-player{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 90vw;
+    background: #191825;
+    border-radius: 10px;
+    z-index: 99;
+    position: relative;
+    justify-content: center;
+    
+}
+
+.video-description{
+    z-index: 101;
+    width: 50vw;
+    height: auto;
+    padding: 10px;
+}
+
+#player{
+    width: 100%;
+    height: 50vh;
+    border-radius: 10px 10px 0 0;
+    border: 2px solid #191825;
+    background: #000;
+    cursor: pointer;
+}
+/* keyframes */
+@keyframes player-loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.player-loading{
+    position: absolute;
+    width: 50px;
+    /* margin:  auto; */
+    height: 50px;
+    border-radius: 50%;
+    border-top: 5px solid #3A1078;
+    border-right: 5px solid #3A1078;
+    border-left: 5px solid #3A1078;
+    border-bottom: 5px solid #2c2c41;   
+    animation: player-loading .5s infinite;
+}
+
+.player-controls{
+    display:none;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    transition: all 1s ease-in-out;
+    
+    align-self: flex-start;
+    padding: 2px 5px;
+    margin-top: -60px;
+}
+
+
+.controls{
+    width: 90vw;
+    height: 50px;
+    background: #191825;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+.controls-player{
+    display: flex;
+    padding: 0 2px;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+}
+.control-item{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.control-item:hover{
+    background: #2c2c41;
+    transition: all .4s ease-in;
+}
+#timeline{
+    width: 100%;
+    height: 5px;
+    color: #191825;
+    background: #20262E;
+    cursor: pointer;
+   
+}
+#timeline::-webkit-progress-value{
+    background: #865dff;
+}
+#current-time{
+    font-weight: bold;
+    color: #E9E8E8;
+}
+#volume-button{
+    background: url('https://api.iconify.design/material-symbols/volume-mute-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
+    height: 30px;
+    width: 30px;
+}
+.btn-icon{
+    background: none;
+    border: none;
+}
+#range-volume{
+    appearance: none;
+    display: none;
+    height: 3px;
+    width: 80px;
+    background: #E9E8E8;
+    accent-color: #865dff;
+    transition: opacity 1s ease-in-out;
+    cursor: pointer;
+}
+
+
+
+}
+
+
+
+
+@media only screen and (min-width: 768px)
+{
+
+.video-top{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.video-player{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 70vw !important;
+    background: #191825;
+    border-radius: 10px;
+    z-index: 99;
+    position: relative;
+    justify-content: center;
+
+    
+}
+.video-player::after{
+    content: url('https://api.iconify.design/line-md/loading-twotone-loop.svg?color=%234e31aa&width=30&height=30');
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 49%;
+}
+.video-player.loaded::after{
+    content: none;
+}
+
+.video-description{
+    z-index: 101;
+    width: 50vw;
+    height: auto;
+    padding: 10px;
+}
+
+#player{
+    width: 100%;
+    height: 50vh;
+    border-radius: 10px 10px 0 0; 
+    border: 2px solid #191825;
+    background: #000;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* keyframes */
+@keyframes player-loading{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.player-loading{
+    position: absolute;
+    width: 50px;
+    /* margin:  auto; */
+    height: 50px;
+    border-radius: 50%;
+    border-top: 5px solid #3A1078;
+    border-right: 5px solid #3A1078;
+    border-left: 5px solid #3A1078;
+    border-bottom: 5px solid #2c2c41;   
+    animation: player-loading .5s infinite;
+}
+
+.player-controls{
+    display:none;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 60px;
+    transition: all 1s ease-in-out;
+    
+    align-self: flex-start;
+    padding: 2px 5px;
+    margin-top: -60px;
+}
+
+
+.controls{
+    width: 70vw !important;
+    height: 50px;
+    background: #191825;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 100;
+}
+.controls-player{
+    display: flex;
+    padding: 0 2px;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+}
+.control-item{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.control-item:hover{
+    background: #2c2c41;
+    transition: all .4s ease-in;
+}
+#timeline{
+    width: 100%;
+    height: 5px;
+    color: #191825;
+    background: #20262E;
+    cursor: pointer;
+   
+}
+#timeline::-webkit-progress-value{
+    background: #865dff;
+}
+#current-time{
+    font-weight: bold;
+    color: #E9E8E8;
+}
+#volume-button{
+    background: url('https://api.iconify.design/material-symbols/volume-mute-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
+    height: 30px;
+    width: 30px;
+}
+.btn-icon{
+    background: none;
+    border: none;
+}
+#range-volume{
+    appearance: none;
+    display: none;
+    height: 3px;
+    width: 80px;
+    background: #E9E8E8;
+    accent-color: #865dff;
+    transition: opacity 1s ease-in-out;
+    cursor: pointer;
+}
+#play-button{
+    background: url('https://api.iconify.design/material-symbols/play-arrow-rounded.svg?color=%234e31aa&width=30&height=30') no-repeat center center / contain;
+}
+#play-button.paused{
+    background: url('https://api.iconify.design/material-symbols/pause-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
+}
+    .video-player{
+        width: 50vw;
+        margin-top: 10vh;
+    }
+    .controls{
+        width: 50vw;
+    }
+    .btn{
+        width: 140px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        gap: 4px;
+        
+    }
+                 
+    .bg-ui{
+        background: #4E31AA;
+       }
+       .bg-ui:hover{
+        background: #3A1078;
+       }
+
+       .tooltip{
+        position: relative;
+       }
+  
+    .tooltip.active::before{
+        content: attr(data-name);
+        font-size:  14px;
+        color: antiquewhite;
+        background: #000;
+        white-space: nowrap;
+        position: absolute;
+        width: auto;
+        height: 15px;
+        top: -120%;
+        padding: 10px ;
+        background: #272727;
+        border-radius: 5px;
+    } 
+
+    
+.btn-ui{
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     border: none;
+}
+}
+
+@media only screen and (min-width: 1280px) {
+    .video-player{
+        width: 80vw;
+    }
+}
