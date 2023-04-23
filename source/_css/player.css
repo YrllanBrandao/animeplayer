@@ -1,15 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
 
-:root{
-    --defaultFont: 'Poppins', sans-serif;
-    --spacer: 1rem;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 
 /* width */
@@ -26,6 +15,58 @@
     background: url('https://api.iconify.design/material-symbols/pause-rounded.svg?color=%236a4cc8&width=30&height=30') no-repeat center center / contain;
 }
 
+.video-player{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+    background: #191825;
+    border-radius: 10px;
+    z-index: 99;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 16 / 4;
+   
+}
+#player{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
+    background: #000;
+    cursor: pointer;
+}
+.player-controls{
+    display:none;
+    flex-direction: column;
+    position: absolute;
+    width: 98%;
+    height: 50px;
+    transition: all 1s ease-in-out;
+    align-self: flex-center;
+    padding: 2px 5px;
+    margin-top: -60px;
+    border-radius: 0 0 10px 10px;
+    bottom: 0;
+}
+
+#timeline{
+    width: 100%;
+    height: 5px;
+    color: #191825;
+    background: #20262E;
+    cursor: pointer;
+    transition: scaleY 100ms ease-in-out;
+}
+#timeline:hover{
+    transform: scaleY(1.7);
+}
+#timeline::-webkit-progress-value{
+    background: #865dff;
+}
+
+
 @media only screen and (max-width: 767px)
 {
 
@@ -35,18 +76,7 @@
     padding: 10px;
 }
 
-.video-player{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 90vw;
-    background: #191825;
-    border-radius: 10px;
-    z-index: 99;
-    position: relative;
-    justify-content: center;
-    
-}
+
 
 .video-description{
     z-index: 101;
@@ -55,14 +85,7 @@
     padding: 10px;
 }
 
-#player{
-    width: 100%;
-    height: 50vh;
-    border-radius: 10px 10px 0 0;
-    border: 2px solid #191825;
-    background: #000;
-    cursor: pointer;
-}
+
 /* keyframes */
 @keyframes player-loading{
     0%{
@@ -88,18 +111,6 @@
     animation: player-loading .5s infinite;
 }
 
-.player-controls{
-    display:none;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 60px;
-    transition: all 1s ease-in-out;
-    
-    align-self: flex-start;
-    padding: 2px 5px;
-    margin-top: -60px;
-}
 
 
 .controls{
@@ -129,14 +140,7 @@
     background: #2c2c41;
     transition: all .4s ease-in;
 }
-#timeline{
-    width: 100%;
-    height: 5px;
-    color: #191825;
-    background: #20262E;
-    cursor: pointer;
-   
-}
+
 #timeline::-webkit-progress-value{
     background: #865dff;
 }
@@ -180,19 +184,7 @@
     padding: 10px;
 }
 
-.video-player{
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 70vw !important;
-    background: #191825;
-    border-radius: 10px;
-    z-index: 99;
-    position: relative;
-    justify-content: center;
 
-    
-}
 .video-player::after{
     content: url('https://api.iconify.design/line-md/loading-twotone-loop.svg?color=%234e31aa&width=30&height=30');
     height: 30px;
@@ -211,18 +203,7 @@
     padding: 10px;
 }
 
-#player{
-    width: 100%;
-    height: 50vh;
-    border-radius: 10px 10px 0 0; 
-    border: 2px solid #191825;
-    background: #000;
-    cursor: pointer;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 /* keyframes */
 @keyframes player-loading{
     0%{
@@ -248,18 +229,6 @@
     animation: player-loading .5s infinite;
 }
 
-.player-controls{
-    display:none;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 60px;
-    transition: all 1s ease-in-out;
-    
-    align-self: flex-start;
-    padding: 2px 5px;
-    margin-top: -60px;
-}
 
 
 .controls{
@@ -289,17 +258,7 @@
     background: #2c2c41;
     transition: all .4s ease-in;
 }
-#timeline{
-    width: 100%;
-    height: 5px;
-    color: #191825;
-    background: #20262E;
-    cursor: pointer;
-   
-}
-#timeline::-webkit-progress-value{
-    background: #865dff;
-}
+
 #current-time{
     font-weight: bold;
     color: #E9E8E8;
@@ -386,8 +345,3 @@
 }
 }
 
-@media only screen and (min-width: 1280px) {
-    .video-player{
-        width: 80vw;
-    }
-}

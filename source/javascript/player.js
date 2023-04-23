@@ -62,14 +62,16 @@ video.addEventListener("timeupdate", () => {
 });
 
 timeline.addEventListener("click", (e) => {
+  video.pause();
   const TIMELINE_WIDTH = timeline.offsetWidth;
-  const CLIENT_X = e.clientX;
-
+  const CLIENT_X = e.clientX-9;
   const DURATION = video.duration;
+  const PERCENT = CLIENT_X / TIMELINE_WIDTH;
 
-  var PERCENT = CLIENT_X / TIMELINE_WIDTH;
-
-  video.currentTime = PERCENT + "%";
+  const CURRENT_TIME = DURATION * PERCENT;
+  timeline.value = CURRENT_TIME;
+  video.currentTime = CURRENT_TIME;
+  video.play();
 });
 
 //
@@ -117,25 +119,16 @@ player.addEventListener("click", () => {
 
 // volume button - show / hidden volume
 
-const rangeVolume = document.getElementById("range-volume");
-volumeButton.addEventListener("mouseover", () => {
-  rangeVolume.style.display = "flex";
-});
 
-volumeButton.addEventListener("click", () => {
-  if (rangeVolume.value === 0) {
-    volumeButton.background =
-      "url('https://api.iconify.design/material-symbols/volume-mute-rounded.svg?color=%236a4cc8&width=30&height=30')";
-    rangeVolume.value = 0.5;
-    video.volume = 0.5;
-  } else {
-    volumeButton.style.background =
-      "url('https://api.iconify.design/material-symbols/volume-off-rounded.svg?color=%236a4cc8&width=30&height=30')";
-    rangeVolume.value = 0;
-    video.volume = 0;
+
+document.addEventListener('contextmenu', (e) =>{
+
+
+  const TARGET =  e.target;
+
+  if(TARGET.classList.contains('player-element'))
+  {
+    e.preventDefault();
   }
-});
-
-rangeVolume.addEventListener("change", () => {
-  video.volume = rangeVolume.value / 100;
-});
+}
+)
