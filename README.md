@@ -1,4 +1,4 @@
-# Customized anime/series player built with javaScript
+# Customized anime/series player built using javaScript
 ## DISCLAIMER
 
 The app is still in construction, so it may not work as expected. If you find any bugs, please report them in the [issues](https://github.com/YrllanBrandao/animeplayer/issues) section.
